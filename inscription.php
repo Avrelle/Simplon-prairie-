@@ -43,33 +43,33 @@
                 <form id="connexion">
                     <label for="User">Nom :</label><br>
                     <input type="text" id="User_name" name="User"><br>
-                    <div class="p">
-                    <label for="MDP">Prénom :</label><br>
-                    <input type="text" id="User_first_name" name="MDP"><br>
+                    <div class="space">
+                    <label for="User_first_name">Prénom :</label><br>
+                    <input type="text" id="User_first_name" name="User_first_name"><br>
                     </div>
-                    <div class="p">
-                    <label for="MDP">Mail :</label><br>
-                    <input type="text" id="mail" name="MDP"><br>
+                    <div class="space">
+                    <label for="mail">Mail :</label><br>
+                    <input type="email" id="mail" name="mail"><br>
                     </div>
-                    <div class="p">
-                    <label for="MDP">Ville :</label><br>
-                    <input type="text" id="ville" name="MDP"><br>
+                    <div class="space">
+                    <label for="ville">Ville :</label><br>
+                    <input type="text" id="ville" name="ville"><br>
                     </div>
-                    <div class="p">
-                    <label for="MDP">Date de naissance :</label><br>
-                    <input type="date" id="date_naissance" name="MDP"><br>
+                    <div class="space">
+                    <label for="date_naissance">Date de naissance :</label><br>
+                    <input type="date" id="date_naissance" name="date_naissance"><br>
                     </div>
-                    <div class="p">
+                    <div class="space">
                     <label for="MDP">Mot de passe :</label><br>
                     <input type="password" id="MDP" name="MDP"><br>
                     </div>
-                    <div class="p">
-                    <label for="MDP">Confirmation de mot de passe :</label><br>
-                    <input type="password" id="MDP" name="MDP"><br>
+                    <div class="space">
+                    <label for="conf_mdp">Confirmation de mot de passe :</label><br>
+                    <input type="password" id="conf_mdp" name="conf_mdp"><br>
                     </div>
                 </form>
                 <div class="button_form">
-                    <button type="submit" form="connexion" value="Submit">Connexion</button>
+                    <button type="submit" form="connexion" value="Submit">Valider</button>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
-    <title>Mon compte</title>
+    <title>compte client</title>
 </head>
 <body>
     <header>
@@ -17,8 +17,8 @@
                         </a>
                         <div class="navbar-links">
                             <ul class="navbar-link">
-                                <a href="inscription.php">
-                                    <li class="navbar-link1">S'inscrire</li>
+                                <a href="index.php">
+                                    <li class="navbar-link1">Déconnexion</li>
                                 </a>
                             </ul>
 
@@ -34,19 +34,27 @@
             <div class="form_content">
             
                 <div class="title_form">
-                    <h1>Mon compte pro</h1>
+                    <h1>Mon animal</h1>
                 </div>
 
                 <form id="connexion">
-                    <label for="User">Nom d'utilisateur :</label><br>
-                    <input type="text" id="User" name="User"><br>
+                    <label for="User">Nom :</label><br>
+                    <input type="text" id="animal_user" name="User"><br>
                     <div class="space">
-                    <label for="MDP">Mot de passe :</label><br>
-                    <input type="password" id="MDP" name="MDP"><br>
+                    <label for="type_animal">Type animal :</label><br>
+                    <input type="text" id="type_animal" name="type_animal"><br>
+                    </div>
+                    <div class="space">
+                    <label for="poids_animal">Poids :</label><br>
+                    <input type="number" id="poids_animal" name="poids_animal"><br>
+                    </div>
+                    <div class="space">
+                    <label for="date_naissance_animal">Date de naissance :</label><br>
+                    <input type="date" id="date_naissance_animal" name="date_naissance_animal"><br>
                     </div>
                 </form>
                 <div class="button_form">
-                    <button type="submit" form="connexion" value="Submit">Connexion</button>
+                    <button type="submit" form="connexion" value="Submit">Valider</button>
                 </div>
             </div>
         </div>

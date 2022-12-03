@@ -44,7 +44,7 @@
                 <form id="connexion">
                     <label for="User">Nom d'utilisateur :</label><br>
                     <input type="text" id="User" name="User"><br>
-                    <div class="p">
+                    <div class="space">
                     <label for="MDP">Mot de passe :</label><br>
                     <input type="password" id="MDP" name="MDP"><br>
                     </div>
