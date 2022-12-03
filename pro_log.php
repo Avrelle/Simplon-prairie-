@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
-    <title>compte client</title>
+    <title>Mon compte</title>
 </head>
 <body>
     <header>
@@ -13,15 +13,12 @@
                 <div class="container">
                     <div class="navbar-content">
                         <a href="index.php">
-                            <img src="./images/logo prairie.jpg" alt="">
+                            <img src="./images/gamelle logo.png" alt="">
                         </a>
                         <div class="navbar-links">
                             <ul class="navbar-link">
                                 <a href="index.html">
                                     <li class="navbar-link1">S'inscrire</li>
-                                </a>
-                                <a href="pro_log.php">
-                                    <li class="navbar-link1">Espace pro</li>
                                 </a>
                             </ul>
 
@@ -37,8 +34,7 @@
             <div class="form_content">
             
                 <div class="title_form">
-                    <h1>Mon compte
-                    </h1>
+                    <h1>Mon compte pro</h1>
                 </div>
 
                 <form id="connexion">
