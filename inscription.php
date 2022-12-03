@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
-    <title>compte client</title>
+    <title>inscription</title>
 </head>
 <body>
     <header>
@@ -17,8 +17,8 @@
                         </a>
                         <div class="navbar-links">
                             <ul class="navbar-link">
-                                <a href="inscription.php">
-                                    <li class="navbar-link1">S'inscrire</li>
+                                <a href="index.php">
+                                    <li class="navbar-link1">Mon compte</li>
                                 </a>
                                 <a href="pro_log.php">
                                     <li class="navbar-link1">Espace pro</li>
@@ -37,15 +37,34 @@
             <div class="form_content">
             
                 <div class="title_form">
-                    <h1>Mon compte
-                    </h1>
+                    <h1>Inscription</h1>
                 </div>
 
                 <form id="connexion">
-                    <label for="User">Nom d'utilisateur :</label><br>
-                    <input type="text" id="User" name="User"><br>
+                    <label for="User">Nom :</label><br>
+                    <input type="text" id="User_name" name="User"><br>
+                    <div class="p">
+                    <label for="MDP">Prénom :</label><br>
+                    <input type="text" id="User_first_name" name="MDP"><br>
+                    </div>
+                    <div class="p">
+                    <label for="MDP">Mail :</label><br>
+                    <input type="text" id="mail" name="MDP"><br>
+                    </div>
+                    <div class="p">
+                    <label for="MDP">Ville :</label><br>
+                    <input type="text" id="ville" name="MDP"><br>
+                    </div>
+                    <div class="p">
+                    <label for="MDP">Date de naissance :</label><br>
+                    <input type="date" id="date_naissance" name="MDP"><br>
+                    </div>
                     <div class="p">
                     <label for="MDP">Mot de passe :</label><br>
+                    <input type="password" id="MDP" name="MDP"><br>
+                    </div>
+                    <div class="p">
+                    <label for="MDP">Confirmation de mot de passe :</label><br>
                     <input type="password" id="MDP" name="MDP"><br>
                     </div>
                 </form>
