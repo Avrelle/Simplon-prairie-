@@ -61,4 +61,50 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+/***************** Main *************/
+.connexion{
+    text-align: center;
+    align-items: center;
+   padding: 20%;
+  
 
+}
+.form {
+    background-color: #032A58;
+    border-radius: 10px;
+
+}
+.form_content{
+    color: var(--couleur-police);
+    font-family:var(--police);
+    padding:4em;
+}
+.p {
+padding-top: 20px;
+}
+.title_form{
+    padding-bottom: 2em;
+}
+.button_form{
+    padding-top: 2em;
+    
+}
+
+
+/******** FOOTER ***********/
+.footer{
+  align-items: center;
+  text-align: center;
+  padding: 3px;
+  background-color: var(--primary);
+  color: white;
+  position: absolute;
+  width: 100%; height: 50px;
+  bottom: 0; left: 0; right: 0;
+  position: fixed;
+  
+ }
+ .footer p {
+    margin-top: 1em;
+    font-family:var(--police);
+ }
