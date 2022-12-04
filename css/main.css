@@ -68,6 +68,41 @@
   
 
 }
+.content_compte{
+    text-align:left;
+    align-items:flex-start;
+    padding: 10%;
+
+}
+.animals{
+    display: flex;
+    background-color: #032A58;
+    height: 80%;
+    border-radius: 20px;
+    justify-content:flex-start;
+    padding: 20px;
+    margin-bottom: 1em;
+   
+
+
+}
+.animals h1{
+    width: 5em;
+    height: 5em;
+    flex-direction: row;
+    font-family:var(--police);
+    color: var(--couleur-police);
+}
+.animals a{
+    font-family:var(--police);
+    color: var(--couleur-police);
+    padding: 10px;
+    padding-top: 10px;
+    
+}
+.animals_list{
+    margin-left: 2em;
+}
 .form {
     background-color: #032A58;
     border-radius: 10px;

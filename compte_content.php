@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
-    <title>Mon compte pro</title>
+    <title>Contenu compte</title>
 </head>
 <body>
     <header>
@@ -17,8 +17,8 @@
                         </a>
                         <div class="navbar-links">
                             <ul class="navbar-link">
-                                <a href="inscription.php">
-                                    <li class="navbar-link1">S'inscrire</li>
+                                <a href="index.php">
+                                    <li class="navbar-link1">Déconnexion</li>
                                 </a>
                             </ul>
 
@@ -29,29 +29,27 @@
             </nav>
     </header>
 <main>
-    <section class="connexion">
-        <div class="form">
-            <div class="form_content">
+    <section class="content_compte">
             
-                <div class="title_form">
-                    <h1>Mon compte pro</h1>
-                </div>
-
-                <form id="connexion">
-                    <label for="User">Nom d'utilisateur :</label><br>
-                    <input type="text" id="User" name="User"><br>
-                    <div class="space">
-                    <label for="MDP">Mot de passe :</label><br>
-                    <input type="password" id="MDP" name="MDP"><br>
-                    </div>
-                </form>
-                <div class="button_form">
-                <button onclick="window.location.href = 'compte_content.php';">Connexion</button>
-                </div>
-            </div>
+        <div class="animals">
+        
+                <h1>Mes animaux :</h1>
+            
+            <ul class="animals_list">
+                <a href="index.php">
+                    <li class="">chien</li>
+                </a>
+                <a href="index.php">
+                    <li class="">chat</li>
+                </a>
+                <a href="index.php">
+                    <li class="">cheval</li>
+                </a>
+            </ul>
         </div>
+        <button onclick="window.location.href = 'animal_form.php';">Nouveau tableau</button>
     </section>
-
+   
 
     <footer>
     <div class="footer">

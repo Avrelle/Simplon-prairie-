@@ -67,9 +67,13 @@
                     <label for="conf_mdp">Confirmation de mot de passe :</label><br>
                     <input type="password" id="conf_mdp" name="conf_mdp"><br>
                     </div>
+                    <div class="space">
+                    <label for="pro">Vétérinaire professionnel :</label><br>
+                    <input type="checkbox" id="pro" name="pro"><br>
+                    </div>
                 </form>
                 <div class="button_form">
-                    <button type="submit" form="connexion" value="Submit">Valider</button>
+                <button onclick="window.location.href = 'index.php';">Valider</button>
                 </div>
             </div>
         </div>

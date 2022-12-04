@@ -50,7 +50,9 @@
                     </div>
                 </form>
                 <div class="button_form">
-                    <button type="submit" form="connexion" value="Submit">Connexion</button>
+                    
+                        <button onclick="window.location.href = 'compte_content.php';">Connexion</button>
+                     
                 </div>
             </div>
         </div>
