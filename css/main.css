@@ -144,6 +144,11 @@ button:focus {
 	outline: none;
 }
 
+.table-style{
+    color: var(--couleur-police);
+    font-family:var(--police);
+    margin-left: 3em;
+}
 
 /******** FOOTER ***********/
 .footer{
@@ -162,3 +167,4 @@ button:focus {
     margin-top: 1em;
     font-family:var(--police);
  }
+ 

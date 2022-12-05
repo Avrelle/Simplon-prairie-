@@ -47,7 +47,7 @@
                 </a>
             </ul>
         </div>
-        <button onclick="window.location.href = 'animal_form.php';">Nouveau tableau</button>
+        <button onclick="window.location.href = 'remeinder_table.php';">Nouveau tableau</button>
     </section>
    
 
