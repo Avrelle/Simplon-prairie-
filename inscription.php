@@ -1,4 +1,5 @@
 <?php
+    session_start();
    $bdd = new PDO('mysql:host=localhost;port=8080;dbname=Veto_app;charset=utf8', 'root', 'root');
    
  if(isset($_POST['envoi'])){
@@ -8,9 +9,24 @@
         $email = htmlspecialchars($_POST['email']);
         $city = htmlspecialchars($_POST['city']);
         $birth_date = htmlspecialchars($_POST['birth_date']);
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $password = sha1($_POST['password']);
         $insertUser = $bdd->prepare('INSERT INTO client (user, email, city, birth_date, password) VALUES (?,?,?,?,?)');
         $insertUser-> execute(array($user, $email, $city, $birth_date, $password));
+        
+        $recupUser = $bdd-> prepare('SELECT * FROM client WHERE user = ? AND email = ? AND city = ? AND birth_date = ? AND password = ?');
+        $recupUser->execute(array($user, $email, $city, $birth_date, $password));
+        if($recupUser->rowCount() > 0){
+            $_SESSION['user'] = $user;
+            $_SESSION['email'] = $email;
+            $_SESSION['city'] = $city;
+            $_SESSION['password'] = $password;
+            $_SESSION['id'] = $recupUser->fetch()['id'];
+    }
+
+       
+
+
+
         header('Location:index.php');
     }else{
         echo"Veuillez completer tous les champs..";

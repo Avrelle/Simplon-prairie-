@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!$_SESSION['password']){
+    header('Location : index.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,13 +44,13 @@
                 <h1>Mes animaux :</h1>
             
             <ul class="animals_list">
-                <a href="index.php">
+                <a href="remeinder_table.php">
                     <li class="">chien</li>
                 </a>
-                <a href="index.php">
+                <a href="remeinder_table.php">
                     <li class="">chat</li>
                 </a>
-                <a href="index.php">
+                <a href="remeinder_table.php">
                     <li class="">cheval</li>
                 </a>
             </ul>

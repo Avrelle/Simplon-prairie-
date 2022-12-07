@@ -1,4 +1,29 @@
+<?php
+session_start();
+ $bdd = new PDO('mysql:host=localhost;port=8080;dbname=Veto_app;charset=utf8', 'root', 'root');
+  if(isset($_POST['envoi'])){
+    if(!empty($_POST['user']) && !empty($_POST['password'])){
+        $user = htmlspecialchars($_POST['user']);
+        $password = sha1($_POST['password']);
+        
+        
+        $recupUser = $bdd->prepare('SELECT * FROM client WHERE user = ? AND password = ?');
+        $recupUser -> execute(array($user, $password));
+        if($recupUser->rowCount()>0){
+            $_SESSION['user'] = $user;
+            $_SESSION['password'] = $password;
+            $_SESSION['id'] = $recupUser->fetch()['id'];
+            header('Location:compte_content.php');
 
+        } else {
+            echo "Erreur";
+        }
+    }else {
+        echo "Veuiller compléter tous les champs";
+    }
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,17 +66,17 @@
                     <h1>Mon compte
                     </h1>
                 </div>
-                <form method="post" action="connexion.php">
-                    <label for="email">email:</label><br>
-                    <input type="text" id="email" name="email"><br>
+                <form method="post" action="">
+                    <label for="user">Nom:</label><br>
+                    <input type="text" name="user"><br>
                     <div class="space">
-                    <label for="MDP">Mot de passe :</label><br>
-                    <input type="password" id="MDP" name="password"><br>
+                    <label for="password">Mot de passe :</label><br>
+                    <input type="password" name="password"><br>
                     </div>
                     <div class="space">
                         <div class="button_form">
                         
-                        <button type ="submit">Connexion</button>
+                        <button type ="submit" name="envoi" >Connexion</button>
                     
                         </div>
                     </div>

@@ -67,7 +67,6 @@
                     </table>
 
             </div>
-            <button onclick="window.location.href = 'remeinder_table.php';">Nouveau tableau</button>
         </section>
 
 
