@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,20 +41,23 @@
                     <h1>Mon compte
                     </h1>
                 </div>
-
-                <form id="connexion">
-                    <label for="User">Nom d'utilisateur :</label><br>
-                    <input type="text" id="User" name="User"><br>
+                <form method="post" action="connexion.php">
+                    <label for="email">email:</label><br>
+                    <input type="text" id="email" name="email"><br>
                     <div class="space">
                     <label for="MDP">Mot de passe :</label><br>
-                    <input type="password" id="MDP" name="MDP"><br>
+                    <input type="password" id="MDP" name="password"><br>
                     </div>
-                </form>
-                <div class="button_form">
+                    <div class="space">
+                        <div class="button_form">
+                        
+                        <button type ="submit">Connexion</button>
                     
-                        <button onclick="window.location.href = 'compte_content.php';">Connexion</button>
-                     
-                </div>
+                        </div>
+                    </div>
+                
+                </form>
+               
             </div>
         </div>
     </section>

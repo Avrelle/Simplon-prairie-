@@ -1,3 +1,24 @@
+<?php
+   $bdd = new PDO('mysql:host=localhost;port=8080;dbname=Veto_app;charset=utf8', 'root', 'root');
+   
+ if(isset($_POST['envoi'])){
+    if(!empty($_POST['user']) && !empty($_POST['email']) && !empty($_POST['city']) && !empty($_POST['birth_date'])
+     && !empty($_POST['password'])){
+        $user = htmlspecialchars($_POST['user']);
+        $email = htmlspecialchars($_POST['email']);
+        $city = htmlspecialchars($_POST['city']);
+        $birth_date = htmlspecialchars($_POST['birth_date']);
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $insertUser = $bdd->prepare('INSERT INTO client (user, email, city, birth_date, password) VALUES (?,?,?,?,?)');
+        $insertUser-> execute(array($user, $email, $city, $birth_date, $password));
+        header('Location:index.php');
+    }else{
+        echo"Veuillez completer tous les champs..";
+    }
+ }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,42 +60,30 @@
                 <div class="title_form">
                     <h1>Inscription</h1>
                 </div>
-
-                <form id="connexion">
-                    <label for="User">Nom :</label><br>
-                    <input type="text" id="User_name" name="User"><br>
+                <form method="POST" action="">
+                    <label for="user">Nom :</label><br>
+                    <input type="text" name="user"><br>
                     <div class="space">
-                    <label for="User_first_name">Prénom :</label><br>
-                    <input type="text" id="User_first_name" name="User_first_name"><br>
+                    <label for="email">Mail :</label><br>
+                    <input type="email" name="email"><br>
                     </div>
                     <div class="space">
-                    <label for="mail">Mail :</label><br>
-                    <input type="email" id="mail" name="mail"><br>
+                    <label for="city">Ville :</label><br>
+                    <input type="text"name="city"><br>
                     </div>
                     <div class="space">
-                    <label for="ville">Ville :</label><br>
-                    <input type="text" id="ville" name="ville"><br>
+                    <label for="birth_date">Date de naissance :</label><br>
+                    <input type="date" name="birth_date"><br>
                     </div>
                     <div class="space">
-                    <label for="date_naissance">Date de naissance :</label><br>
-                    <input type="date" id="date_naissance" name="date_naissance"><br>
+                    <label for="password">Mot de passe :</label><br>
+                    <input type="password" name="password" autocomplete="off"><br>
                     </div>
-                    <div class="space">
-                    <label for="MDP">Mot de passe :</label><br>
-                    <input type="password" id="MDP" name="MDP"><br>
-                    </div>
-                    <div class="space">
-                    <label for="conf_mdp">Confirmation de mot de passe :</label><br>
-                    <input type="password" id="conf_mdp" name="conf_mdp"><br>
-                    </div>
-                    <div class="space">
-                    <label for="pro">Vétérinaire professionnel :</label><br>
-                    <input type="checkbox" id="pro" name="pro"><br>
+                    <div class="button_form">
+                        <button type="submit" name="envoi">Valider</button>
                     </div>
                 </form>
-                <div class="button_form">
-                <button onclick="window.location.href = 'index.php';">Valider</button>
-                </div>
+                
             </div>
         </div>
     </section>
