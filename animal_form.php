@@ -17,7 +17,7 @@
                         </a>
                         <div class="navbar-links">
                             <ul class="navbar-link">
-                                <a href="index.php">
+                                <a href="logout.php">
                                     <li class="navbar-link1">Déconnexion</li>
                                 </a>
                             </ul>

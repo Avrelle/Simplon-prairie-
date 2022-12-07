@@ -1,11 +1,3 @@
-<?php
-session_start();
-if(!$_SESSION['password']){
-    header('Location : index.php');
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +17,10 @@ if(!$_SESSION['password']){
                         </a>
                         <div class="navbar-links">
                             <ul class="navbar-link">
-                                <a href="index.php">
+                            <a href="animal_form.php">
+                                    <li class="navbar-link1">Nouvel animal</li>
+                                </a>
+                                <a href="logout.php">
                                     <li class="navbar-link1">Déconnexion</li>
                                 </a>
                             </ul>

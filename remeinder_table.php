@@ -67,6 +67,7 @@
                     </table>
 
             </div>
+            <button onclick="window.location.href = 'remeinder_table.php';">Modifier</button>
         </section>
 
 
