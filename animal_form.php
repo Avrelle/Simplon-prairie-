@@ -1,37 +1,46 @@
 <?php
-    session_start();
-   $bdd = new PDO('mysql:host=localhost;port=8080;dbname=Veto_app;charset=utf8', 'root', 'root');
+session_start();
+     try {
+        $bdd = new PDO('mysql:host=localhost;port=8080;dbname=Veto_app;charset=utf8', 'root', 'root');
+   $bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    
+    }catch(PDOException$e){
+        print"Erreur!:".$e->getMessage()."<br/>";
+        die();
+    }
    
- if(isset($_POST['envoi'])){
-    if(!empty($_POST['user']) && !empty($_POST['email']) && !empty($_POST['city']) && !empty($_POST['birth_date'])
-     && !empty($_POST['password'])){
-        $user = htmlspecialchars($_POST['user']);
-        $email = htmlspecialchars($_POST['email']);
-        $city = htmlspecialchars($_POST['city']);
-        $birth_date = htmlspecialchars($_POST['birth_date']);
-        $password = sha1($_POST['password']);
-        $insertUser = $bdd->prepare('INSERT INTO client (user, email, city, birth_date, password) VALUES (?,?,?,?,?)');
-        $insertUser-> execute(array($user, $email, $city, $birth_date, $password));
-        
-        $recupUser = $bdd-> prepare('SELECT * FROM client WHERE user = ? AND email = ? AND city = ? AND birth_date = ? AND password = ?');
-        $recupUser->execute(array($user, $email, $city, $birth_date, $password));
-        if($recupUser->rowCount() > 0){
-            $_SESSION['user'] = $user;
-            $_SESSION['email'] = $email;
-            $_SESSION['city'] = $city;
-            $_SESSION['password'] = $password;
-            $_SESSION['id'] = $recupUser->fetch()['id'];
-    }
-
-       
-
-
-
-        header('Location:index.php');
-    }else{
-        echo"Veuillez completer tous les champs..";
-    }
- }
+    if(isset($_POST['send'])){
+        if(!empty($_POST['name']) && !empty($_POST['weight']) && !empty($_POST['animal_type']) && !empty($_POST['birth_date'])){
+            $name = htmlspecialchars($_POST['name']);
+            $weight = htmlspecialchars($_POST['weight']);
+            $animal_type = htmlspecialchars($_POST['animal_type']);
+            $birth_date = htmlspecialchars($_POST['birth_date']);
+            $sql = 'INSERT INTO animal (name, weight, animal_type, birth_date) VALUES (:name, :weight , :animal_type , :birth_date)';
+            $query = $bdd->prepare($sql);
+            $query->bindValue(':name', $name, PDO::PARAM_STR);
+                $query->bindValue(':weight', $weight, PDO::PARAM_INT);
+                $query->bindValue(':animal_type', $animal_type, PDO::PARAM_STR);
+                $query->bindValue(':birth_date', $birth_date, PDO::PARAM_STR);
+            $query->execute();
+            $recupUser = $bdd-> prepare('SELECT * FROM animal 
+            WHERE name = ? AND weight = ? AND animal_type = ? AND birth_date = ?');
+            $recupUser->execute(array($name, $weight, $animal_type, $birth_date));
+            if($recupUser->rowCount() > 0){
+                $_SESSION['name'] = $name;
+                $_SESSION['weight'] = $weight;
+                $_SESSION['animal_type'] = $animal_type;
+                $_SESSION['birth_date'] = $birth_date;
+                $_SESSION['id'] = $recupUser->fetch()['id'];
+        }
+           
+    
+    
+    
+            header('Location:compte_content.php');
+        }else{
+            echo"Veuillez completer tous les champs..";
+        }
+     }
 
 ?>
 
@@ -74,25 +83,26 @@
                     <h1>Mon animal</h1>
                 </div>
 
-                <form id="connexion">
-                    <label for="User">Nom :</label><br>
-                    <input type="text" id="animal_user" name="User"><br>
+                <form method="POST" action="">
+                    <label for="name">Nom :</label><br>
+                    <input type="text" name="name" autocomplete="off"><br>
                     <div class="space">
-                    <label for="type_animal">Type animal :</label><br>
-                    <input type="text" id="type_animal" name="type_animal"><br>
+                        <label for="animal_type">Type animal :</label><br>
+                        <input type="text" name="animal_type" autocomplete="off"><br>
                     </div>
                     <div class="space">
-                    <label for="poids_animal">Poids :</label><br>
-                    <input type="number" id="poids_animal" name="poids_animal"><br>
+                        <label for="weight">Poids :</label><br>
+                        <input type="number" name="weight" autocomplete="off"><br>
                     </div>
                     <div class="space">
-                    <label for="date_naissance_animal">Date de naissance :</label><br>
-                    <input type="date" id="date_naissance_animal" name="date_naissance_animal"><br>
+                        <label for="birth_date">Date de naissance :</label><br>
+                        <input type="date" name="birth_date" autocomplete="off"><br>
+                    </div>
+                    <div class="button_form">
+                        <button type="submit" name="send">Valider</button>
                     </div>
                 </form>
-                <div class="button_form">
-                <button onclick="window.location.href = 'compte_content.php';">Valider</button>
-                </div>
+                
             </div>
         </div>
     </section>
