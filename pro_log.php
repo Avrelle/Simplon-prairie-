@@ -17,8 +17,8 @@
                         </a>
                         <div class="navbar-links">
                             <ul class="navbar-link">
-                                <a href="inscription.php">
-                                    <li class="navbar-link1">S'inscrire</li>
+                                <a href="pro_inscription.php">
+                                    <li class="navbar-link1">S'inscrire comme vétérinaire</li>
                                 </a>
                             </ul>
 

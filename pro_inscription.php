@@ -1,8 +1,18 @@
 <?php
     session_start();
-   $bdd = new PDO('mysql:host=localhost;port=8080;dbname=Veto_app;charset=utf8', 'root', 'root');
+  
+
+   try {
+        $bdd = new PDO('mysql:host=localhost;port=8080;dbname=Veto_app;charset=utf8', 'root', 'root');
+   $bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    
+    }catch(PDOException$e){
+        print"Erreur!:".$e->getMessage()."<br/>";
+        die();
+    }
    
- if(isset($_POST['envoi'])){
+ if(isset($_POST['send'])){
+    
     if(!empty($_POST['user']) && !empty($_POST['email']) && !empty($_POST['city']) && !empty($_POST['birth_date'])
      && !empty($_POST['password'])){
         $user = htmlspecialchars($_POST['user']);
@@ -10,10 +20,16 @@
         $city = htmlspecialchars($_POST['city']);
         $birth_date = htmlspecialchars($_POST['birth_date']);
         $password = sha1($_POST['password']);
-        $insertUser = $bdd->prepare('INSERT INTO client (user, email, city, birth_date, password) VALUES (?,?,?,?,?)');
-        $insertUser-> execute(array($user, $email, $city, $birth_date, $password));
-        
-        $recupUser = $bdd-> prepare('SELECT * FROM client WHERE user = ? AND email = ? AND city = ? AND birth_date = ? AND password = ?');
+        $sql = 'INSERT INTO proespace (user, email, city, birth_date, password) VALUES (:user, :email , :city , :birth_date , :password)';
+        $query = $bdd->prepare($sql);
+        $query->bindValue(':user', $user, PDO::PARAM_STR);
+            $query->bindValue(':email', $email, PDO::PARAM_STR);
+            $query->bindValue(':city', $city, PDO::PARAM_STR);
+            $query->bindValue(':birth_date', $birth_date, PDO::PARAM_STR);
+            $query->bindValue(':password', $password, PDO::PARAM_STR);
+        $query->execute();
+        $recupUser = $bdd-> prepare('SELECT * FROM proespace 
+        WHERE user = ? AND email = ? AND city = ? AND birth_date = ? AND password = ?');
         $recupUser->execute(array($user, $email, $city, $birth_date, $password));
         if($recupUser->rowCount() > 0){
             $_SESSION['user'] = $user;
@@ -22,12 +38,11 @@
             $_SESSION['password'] = $password;
             $_SESSION['id'] = $recupUser->fetch()['id'];
     }
-
        
 
 
 
-        header('Location:index.php');
+        header('Location:pro_log.php');
     }else{
         echo"Veuillez completer tous les champs..";
     }
@@ -42,7 +57,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
-    <title>formulaire animal</title>
+    <title>inscription vétérinaire</title>
 </head>
 <body>
     <header>
@@ -54,8 +69,11 @@
                         </a>
                         <div class="navbar-links">
                             <ul class="navbar-link">
-                                <a href="logout.php">
-                                    <li class="navbar-link1">Déconnexion</li>
+                                <a href="index.php">
+                                    <li class="navbar-link1">Mon compte</li>
+                                </a>
+                                <a href="pro_log.php">
+                                    <li class="navbar-link1">Espace pro</li>
                                 </a>
                             </ul>
 
@@ -71,28 +89,32 @@
             <div class="form_content">
             
                 <div class="title_form">
-                    <h1>Mon animal</h1>
+                    <h1>Inscription</h1>
                 </div>
-
-                <form id="connexion">
-                    <label for="User">Nom :</label><br>
-                    <input type="text" id="animal_user" name="User"><br>
+                <form method="POST" action="">
+                    <label for="user">Nom :</label><br>
+                    <input type="text" name="user"><br>
                     <div class="space">
-                    <label for="type_animal">Type animal :</label><br>
-                    <input type="text" id="type_animal" name="type_animal"><br>
+                    <label for="email">Mail :</label><br>
+                    <input type="email" name="email"><br>
                     </div>
                     <div class="space">
-                    <label for="poids_animal">Poids :</label><br>
-                    <input type="number" id="poids_animal" name="poids_animal"><br>
+                    <label for="city">Ville :</label><br>
+                    <input type="text"name="city"><br>
                     </div>
                     <div class="space">
-                    <label for="date_naissance_animal">Date de naissance :</label><br>
-                    <input type="date" id="date_naissance_animal" name="date_naissance_animal"><br>
+                    <label for="birth_date">Date de naissance :</label><br>
+                    <input type="date" name="birth_date"><br>
+                    </div>
+                    <div class="space">
+                    <label for="password">Mot de passe :</label><br>
+                    <input type="password" name="password"><br>
+                    </div>
+                    <div class="button_form">
+                        <button type="submit" name="send">Valider</button>
                     </div>
                 </form>
-                <div class="button_form">
-                <button onclick="window.location.href = 'compte_content.php';">Valider</button>
-                </div>
+                
             </div>
         </div>
     </section>
