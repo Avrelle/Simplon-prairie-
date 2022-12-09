@@ -8,6 +8,11 @@ session_start();
         print"Erreur!:".$e->getMessage()."<br/>";
         die();
     }
+    
+    if(!$_SESSION['password']){
+        header('Location:index.php');
+    }
+?>
    
     if(isset($_POST['send'])){
         if(!empty($_POST['name']) && !empty($_POST['weight']) && !empty($_POST['animal_type']) && !empty($_POST['birth_date'])){
