@@ -41,7 +41,7 @@ const mode = {
                         "Est-ce que ton code est bien indenté ?",
                         "As-tu regardé dans l'inspecteur du navigateur ?",
                         "Prends un papier et un crayon ;)",
-                        "Fais une pause :)",
+                        "Faites une pause :)",
                         "Que fait cette fonction ?"
                 ],
                 
