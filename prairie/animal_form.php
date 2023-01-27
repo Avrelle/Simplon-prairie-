@@ -12,7 +12,7 @@ session_start();
     if(!$_SESSION['password']){
         header('Location:index.php');
     }
-?>
+
    
     if(isset($_POST['send'])){
         if(!empty($_POST['name']) && !empty($_POST['weight']) && !empty($_POST['animal_type']) && !empty($_POST['birth_date'])){
@@ -51,6 +51,7 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,66 +59,66 @@ session_start();
     <link rel="stylesheet" href="/css/main.css">
     <title>formulaire animal</title>
 </head>
+
 <body>
     <header>
-            <nav class="navbar-part">
-                <div class="container">
-                    <div class="navbar-content">
-                        <a href="index.php">
-                            <img src="./images/logo prairie.jpg" alt="">
-                        </a>
-                        <div class="navbar-links">
-                            <ul class="navbar-link">
-                                <a href="logout.php">
-                                    <li class="navbar-link1">Déconnexion</li>
-                                </a>
-                            </ul>
+        <nav class="navbar-part">
+            <div class="container">
+                <div class="navbar-content">
+                    <a href="index.php">
+                        <img src="./images/logo prairie.jpg" alt="">
+                    </a>
+                    <div class="navbar-links">
+                        <ul class="navbar-link">
+                            <a href="logout.php">
+                                <li class="navbar-link1">Déconnexion</li>
+                            </a>
+                        </ul>
 
-                        </div>
                     </div>
                 </div>
-
-            </nav>
-    </header>
-<main>
-    <section class="connexion">
-        <div class="form">
-            <div class="form_content">
-            
-                <div class="title_form">
-                    <h1>Mon animal</h1>
-                </div>
-
-                <form method="POST" action="">
-                    <label for="name">Nom :</label><br>
-                    <input type="text" name="name" autocomplete="off"><br>
-                    <div class="space">
-                        <label for="animal_type">Type animal :</label><br>
-                        <input type="text" name="animal_type" autocomplete="off"><br>
-                    </div>
-                    <div class="space">
-                        <label for="weight">Poids :</label><br>
-                        <input type="number" name="weight" autocomplete="off"><br>
-                    </div>
-                    <div class="space">
-                        <label for="birth_date">Date de naissance :</label><br>
-                        <input type="date" name="birth_date" autocomplete="off"><br>
-                    </div>
-                    <div class="button_form">
-                        <button type="submit" name="send">Valider</button>
-                    </div>
-                </form>
-                
             </div>
-        </div>
-    </section>
+
+        </nav>
+    </header>
+    <main>
+        <section class="connexion">
+            <div class="form">
+                <div class="form_content">
+
+                    <div class="title_form">
+                        <h1>Mon animal</h1>
+                    </div>
+
+                    <form method="POST" action="">
+                        <label for="name">Nom :</label><br>
+                        <input type="text" name="name" autocomplete="off"><br>
+                        <div class="space">
+                            <label for="animal_type">Type animal :</label><br>
+                            <input type="text" name="animal_type" autocomplete="off"><br>
+                        </div>
+                        <div class="space">
+                            <label for="weight">Poids :</label><br>
+                            <input type="number" name="weight" autocomplete="off"><br>
+                        </div>
+                        <div class="space">
+                            <label for="birth_date">Date de naissance :</label><br>
+                            <input type="date" name="birth_date" autocomplete="off"><br>
+                        </div>
+                        <div class="button_form">
+                            <button type="submit" name="send">Valider</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </section>
 
 
-    <footer>
-    <div class="footer">
-        <p>Croquette n’est pas un service d’urgence. En cas d’urgence appelez le 3115.</p>
-        </div>    
- </footer>
- </main>
+        <footer>
+            <div class="footer">
+                <p>Croquette n’est pas un service d’urgence. En cas d’urgence appelez le 3115.</p>
+            </div>
+        </footer>
+    </main>
 </body>
-
